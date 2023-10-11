@@ -1,0 +1,31 @@
+---
+const {slug, image} = Astro.props
+
+import { Image } from 'astro:assets';
+---
+
+  <a href={`/${slug}`}>
+  	<Image class="h-auto max-w-full rounded-lg" src={image} alt='ver' />
+  </a>
+
+<style>
+  @keyframes show {
+    from {
+      opacity: 0;
+      scale: 25%;
+    }
+    to {
+      opacity: 1;
+      scale: 100%;
+    }
+  }
+
+  img {
+    view-timeline-name: --scroll;
+    view-timeline-axis: block;
+    animation-timeline: --scroll;
+    animation-name: show;
+    animation-range: entry 25% cover 50%;
+    animation-fill-mode: both;
+  }
+</style>

@@ -1,0 +1,30 @@
+---
+import Link from '../components/Link.astro'
+
+const today = new Date()
+---
+<footer class="bg-white dark:bg-gray-900 w-full border-t border-gray-200 dark:border-gray-600 flex justify-center items-center mt-3 py-3" >
+	<ul class="flex gap-2">
+		<li>&copy; {today.getFullYear()} All rights reserved.</li>
+		<li>
+			<Link
+				href={'https://www.instagram.com/linolovedesign/'}
+				rel={'nofollow prefetch'}
+				title={'Instagram @linolovedesign'}
+				text={'@linolovedesign'}
+				icon={'mdi:instagram'}
+				target='_blank'
+				className="flex justify-center items-center"/>
+		</li>
+		<li>
+			<Link
+				href={'https://wa.me/5491130467491'}
+				rel={'nofollow prefetch'}
+				title={'Contactanos por Whatsapp'}
+				text={'Whatsapp'}
+				icon={'mdi:whatsapp'}
+				target='_blank'
+				className="flex justify-center items-center"/>
+		</li>
+	</ul>
+</footer>

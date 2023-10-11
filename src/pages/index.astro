@@ -1,16 +1,25 @@
 ---
+import { Image } from 'astro:assets'
+
+import { getCollection } from 'astro:content'
+const photos = await getCollection('portfolio')
+
+import Base from '../layouts/Base.astro'
+import Photo from '../components/Photo.astro'
+import Logo from '../assets/LinoLove Logo.png'; 
 
 ---
-
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<Base title='LinoLove Design'>
+	<main class="mt-20 md:pt-16">
+		<Image src={Logo}  alt="LinoLove Design Logo" class="w-1/2 mx-auto" />
+		<div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+			
+			{ 
+				photos.map((photo) => (
+					<Photo slug={photo.slug} image={photo.data.image} />
+				))
+			}		
+		</div>
+	</main>
+</Base>
+ 

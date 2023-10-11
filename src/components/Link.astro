@@ -1,0 +1,28 @@
+---
+import { Icon } from 'astro-icon'
+import type { HTMLAttributes } from 'astro/types'
+interface Props extends HTMLAttributes<'a'> {
+	text?: string
+	href: string
+	rel?: 'prefetch' | 'nofollow prefetch'
+	icon?: string
+	target?: '_self' | '_blank'
+	title?: string
+	class?: string
+}
+
+const {
+	text,
+	href,
+	rel = 'prefetch',
+	icon,
+	target,
+	title,
+	class: className,
+	...props
+} = Astro.props
+---
+
+<a href={href} rel={rel} title={title} target={target} class={className} {...props}>
+	{icon ? <Icon name={icon} class="h-5" /> : ''}<span>{text}</span>
+</a>
