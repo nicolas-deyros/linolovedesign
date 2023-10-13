@@ -24,5 +24,5 @@ const {
 ---
 
 <a href={href} rel={rel} title={title} target={target} class={className} {...props}>
-	{icon ? <Icon name={icon} class="h-5" /> : ''}<span>{text}</span>
+	{icon ? <Icon name={icon} class="h-5" /> : ''}<span class="hidden md:block">{text}</span>
 </a>

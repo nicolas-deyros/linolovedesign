@@ -1,4 +1,5 @@
 ---
+export const prerender = true;
 import { Image } from 'astro:assets'
 import {Icon} from 'astro-icon'
 
@@ -9,7 +10,7 @@ export async function getStaticPaths() {
 		params: { slug: entry.slug }, props: { entry },
 	}))
 }
-const { entry:{data:{title, image, price}} } = Astro.props
+const { entry:{data:{title, image, price, size, typeOfFabric, description}} } = Astro.props
 
 import Base from '../layouts/Base.astro'
 // const { Content } = await entry.render();
@@ -17,12 +18,22 @@ import Base from '../layouts/Base.astro'
 
 <Base title={`${title} | LinoLove Design`}>
 	<main class="mt-20 md:pt-16 p-4 xl:p-0">
-		<a href="/" class="flex items-center"><Icon name="ep:arrow-up-bold" class="h-5 -rotate-90" />Volver</a>
-		<Image class="h-auto max-w-lg rounded-lg my-3 mx-auto" src={image} alt='ver' />
-		<h1 class="text-3xl font-bold">{title}</h1>
-		<p class="text-xl font-bold">Precio: ${price}</p>
-		<p class="text-xl font-bold">Talles: M</p>
-		<p class="text-xl font-bold">Tela: Algodon</p>
-		<p><span>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Vero dolorum nemo obcaecati ducimus officiis perspiciatis ex, tempore atque itaque deserunt odio possimus impedit. Ipsa impedit pariatur illo assumenda eius iste?</span><span>Est distinctio in beatae rem ipsa eius nisi animi similique eum ex exercitationem hic magnam quis obcaecati, rerum illo, nesciunt sequi facere quod placeat omnis! Distinctio maiores fugiat reiciendis dignissimos.</span><span>Similique dolore porro omnis expedita. Repudiandae placeat ullam adipisci voluptatum odio atque quibusdam similique a accusamus! Architecto quas officia, quis sit eos sapiente quam facilis. Amet natus aperiam explicabo beatae.</span><span>Architecto aliquam voluptates voluptas assumenda alias, velit eligendi laborum nemo voluptatum veritatis commodi facilis necessitatibus impedit laboriosam beatae maxime iste sit non fuga nisi ducimus soluta sunt earum. Dolor, tenetur.</span><span>Quasi obcaecati blanditiis consequatur, odio consequuntur quo sunt non numquam mollitia magni explicabo delectus similique autem nihil expedita distinctio eos quidem amet nobis soluta perferendis! Nam omnis provident ut incidunt.</span></p>
+		<a href="/" class="flex items-center text-rose-300 hover:text-rose-500"><Icon name="ep:arrow-up-bold" class="h-5 -rotate-90" />Volver</a>
+		<div class="md:w-1/2 mx-auto">
+			<Image class="h-auto max-w-lg rounded-lg my-3 mx-auto" src={image} alt='ver' />
+			<h1 class="text-3xl text-center font-bold text-rose-700">{title}</h1>
+			<p class="text-xl font-bold text-center text-rose-500">Precio: ${price}</p>
+			<div class="flex items-center justify-evenly text-rose-400">
+				{
+					size === undefined ? '' : <p class="text-xl font-bold">Talles: {size}</p>
+				}
+				{
+					typeOfFabric === undefined ? '' : <p class="text-xl font-bold">Tela: {typeOfFabric}</p>
+				}
+				{
+					description === undefined ? '' : <p>{description}</p>
+				}
+			</div>
+		</div>
 	</main>    
 </Base> 

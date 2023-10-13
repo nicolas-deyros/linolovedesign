@@ -9,7 +9,8 @@ module.exports = {
 	theme: {
 		extend: {
 			fontFamily: {
-				logo: ['Alex Brush'],
+				alexBrush: ['Alex Brush'],
+				youngSerif: ['Young Serif'],
 			},
 		},
 	},

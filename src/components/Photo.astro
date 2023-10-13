@@ -1,12 +1,18 @@
 ---
-const {slug, image} = Astro.props
+const {slug, image, price, title} = Astro.props
 
 import { Image } from 'astro:assets';
 ---
-
-  <a href={`/${slug}`}>
-  	<Image class="h-auto max-w-full rounded-lg" src={image} alt='ver' />
-  </a>
+  
+<a href={`/${slug}`} rel="prefetch">
+	<div class="card max-w-sm h-modal bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+		<Image class="w-full h-5/6 rounded-t-lg" src={image} alt={title} />
+		<div class="text-center md:p-5">    
+			<h5 class="md:mb-2 text-md md:text-3xl font-bold tracking-tight text-rose-900 dark:text-white">{title}</h5>
+			<p class="text-sm md:text-xl font-medium text-rose-500 dark:text-gray-400">$ {price}</p>
+		</div>
+	</div>
+</a>
 
 <style>
   @keyframes show {
@@ -20,7 +26,7 @@ import { Image } from 'astro:assets';
     }
   }
 
-  img {
+  .card {
     view-timeline-name: --scroll;
     view-timeline-axis: block;
     animation-timeline: --scroll;

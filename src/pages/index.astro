@@ -7,19 +7,16 @@ const photos = await getCollection('portfolio')
 import Base from '../layouts/Base.astro'
 import Photo from '../components/Photo.astro'
 import Logo from '../assets/LinoLove Logo.png'; 
-
----
+--- 
 <Base title='LinoLove Design'>
-	<main class="mt-20 md:pt-16">
-		<Image src={Logo}  alt="LinoLove Design Logo" class="w-1/2 mx-auto" />
-		<div class="grid grid-cols-2 md:grid-cols-3 gap-4">
-			
-			{ 
-				photos.map((photo) => (
-					<Photo slug={photo.slug} image={photo.data.image} />
-				))
-			}		
-		</div>
-	</main>
+	<Image src={Logo}  alt="LinoLove Design Logo" class="w-1/2 mx-auto" />
+	<div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+		
+		{ 
+			photos.map((photo) => (
+				<Photo slug={photo.slug} image={photo.data.image} price={photo.data.price} title={photo.data.title} />
+			))
+		}		
+	</div>
 </Base>
  

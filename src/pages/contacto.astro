@@ -1,10 +1,10 @@
 ---
 import Base from '../layouts/Base.astro'
-
+import ContactUs from '../components/ContactUs'
 ---
 <Base title='LinoLove Design'>
-	<main class="mt-20 md:pt-16">
-		<h1 class="text-center text-4xl font-bold mt-10">Contacto</h1>
-	</main>
+	<div class="h-screen">
+		<ContactUs client:visible />
+	</div>
 </Base>
  

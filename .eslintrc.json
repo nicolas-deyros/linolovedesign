@@ -6,8 +6,8 @@
 	"extends": [
 		"eslint:recommended",
 		"plugin:@typescript-eslint/recommended",
-		"plugin:astro/recommended",
-		"prettier"
+		"plugin:prettier/recommended",
+		"plugin:astro/recommended"
 	],
 	"overrides": [
 		{
@@ -29,7 +29,6 @@
 		"eqeqeq": "error",
 		"indent": ["error", "tab"],
 		"linebreak-style": ["error", "unix"],
-		"quotes": ["error", "single"],
-		"semi": ["error", "never"]
+		"quotes": ["error", "single"]
 	}
 }
