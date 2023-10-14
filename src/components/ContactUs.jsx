@@ -23,7 +23,7 @@ const ContactUs = () => {
 
 	const sendEmail = value => {
 		emailjs
-			.send('service_r5lhb2j', 'template_30fomqt', value, '5jtzri5zyzJcWEw-T')
+			.send('service_r5lhb2j', 'template_4l0pu5o', value, '5jtzri5zyzJcWEw-T')
 			.catch(error => console.log(error))
 	}
 
@@ -49,14 +49,14 @@ const ContactUs = () => {
 	})
 
 	return (
-		<div className="w-full h-full flex flex-col items-center justify-center">
+		<div className="w-full h-full flex flex-col items-center justify-center px-3 md:px-0">
 			{formSubmit && (
 				<motion.h3
 					initial={{ scale: 0 }}
 					animate={{ scale: 1 }}
 					transition={{ duration: 2, ease: 'easeInOut', delay: 0.2 }}
-					className="text-lg font-bold text-green-300">
-					Thanks, I'll be in touch
+					className="text-lg font-bold text-rose-500">
+					Gracias por tu mensaje. Estaremos en contacto
 				</motion.h3>
 			)}
 			{!formik.isValid && (
@@ -65,12 +65,12 @@ const ContactUs = () => {
 					animate={{ opacity: 1 }}
 					transition={{ delay: 0.2 }}
 					className="text-lg font-bold text-red-500">
-					Review your input in order to proceed
+					Revisa la información ingresada
 				</motion.h3>
 			)}
 			{!formSubmit && formik.isValid && (
 				<h3 className="text-lg font-bold text-gray-500">
-					Get in touch with me:
+					Ponte en contacto con nosotros
 				</h3>
 			)}
 
@@ -85,7 +85,7 @@ const ContactUs = () => {
 							: 'block text-gray-700 text-sm font-bold'
 					}
 					htmlFor="name">
-					Your Name
+					Nombre Completo
 				</label>
 				<div
 					className={
@@ -115,9 +115,9 @@ const ContactUs = () => {
 						className={
 							formik.errors.name && formik.touched.name
 								? 'bg-red-200 border border-red-500 text-red-900 text-sm border-l-0 rounded-r-md block w-full p-2.5 placeholder-red-900'
-								: 'bg-gray-50 border border-gray-300 text-gray-900 text-sm border-l-0 rounded-r-md focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  placeholder-gray-700'
+								: 'bg-gray-50 border border-gray-300 text-gray-900 text-sm border-l-0 rounded-r-md focus:ring-rose-500 focus:border-rose-500 block w-full p-2.5  placeholder-gray-700'
 						}
-						placeholder="Your name goes here"
+						placeholder="Ingresar nombre"
 						value={formik.values.name}
 						onChange={formik.handleChange}
 						onBlur={formik.handleBlur}
@@ -139,7 +139,7 @@ const ContactUs = () => {
 							: 'block text-gray-700 text-sm font-bold'
 					}
 					htmlFor="email">
-					Your Email
+					Email
 				</label>
 				<div
 					className={
@@ -169,9 +169,9 @@ const ContactUs = () => {
 						className={
 							formik.errors.email && formik.touched.email
 								? 'bg-red-200 border border-red-500 text-red-900 text-sm border-l-0  rounded-r-md block w-full p-2.5  placeholder-red-900'
-								: 'bg-gray-50 border border-gray-300 text-gray-900 text-sm border-l-0  rounded-r-md focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  placeholder-gray-700'
+								: 'bg-gray-50 border border-gray-300 text-gray-900 text-sm border-l-0  rounded-r-md focus:ring-rose-500 focus:border-rose-500 block w-full p-2.5  placeholder-gray-700'
 						}
-						placeholder="Here goes your email"
+						placeholder="Ingresar mail"
 						value={formik.values.email}
 						onChange={formik.handleChange}
 						onBlur={formik.handleBlur}
@@ -193,7 +193,7 @@ const ContactUs = () => {
 							: 'block text-gray-700 text-sm font-bold'
 					}
 					htmlFor="msg">
-					Your Message
+					Tu mensaje
 				</label>
 				<div
 					className={
@@ -208,9 +208,9 @@ const ContactUs = () => {
 						className={
 							formik.errors.msg && formik.touched.msg
 								? 'bg-red-200 border border-red-500 text-red-900 text-sm border-r-0  rounded-l-md block w-full p-2.5  placeholder-gray-900'
-								: 'bg-gray-50 border border-gray-300 text-gray-900 text-sm border-r-0  rounded-l-md focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  placeholder-gray-700'
+								: 'bg-gray-50 border border-gray-300 text-gray-900 text-sm border-r-0  rounded-l-md focus:ring-rose-500 focus:border-rose-500 block w-full p-2.5  placeholder-gray-700'
 						}
-						placeholder="What would you like to say"
+						placeholder="Escriba su mensaje (max 500 caracteres)"
 						value={formik.values.msg}
 						onChange={formik.handleChange}
 						onBlur={formik.handleBlur}
@@ -247,17 +247,17 @@ const ContactUs = () => {
 					className={
 						formSubmit || !formik.isValid
 							? 'text-white w-1/3 md:w-1/5 md:mt-3  bg-gray-700 hover:bg-gray-800 focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center opacity-50'
-							: 'text-white w-1/3 md:w-1/5 md:mt-3  bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center'
+							: 'text-white w-1/3 md:w-1/5 md:mt-3  bg-rose-700 hover:bg-rose-800 focus:ring-4 focus:outline-none focus:ring-rose-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center'
 					}>
 					{formSubmit ? (
 						<span className="flex gap-3 justify-center items-center">
-							<FontAwesomeIcon icon={faRocket} /> Sending
+							<FontAwesomeIcon icon={faRocket} /> Enviando
 						</span>
 					) : !formik.isValid ? (
 						<span className="flex gap-3 justify-center items-center">
 							<svg
 								aria-hidden="true"
-								class="w-5 h-5 mr-2 text-gray-200 animate-spin  fill-blue-600"
+								class="w-5 h-5 mr-2 text-gray-200 animate-spin  fill-rose-600"
 								viewBox="0 0 100 101"
 								fill="none"
 								xmlns="http://www.w3.org/2000/svg">
@@ -270,11 +270,11 @@ const ContactUs = () => {
 									fill="currentFill"
 								/>
 							</svg>
-							Processing...
+							Procesando...
 						</span>
 					) : (
 						<span className="flex gap-3 justify-center items-center">
-							<FontAwesomeIcon icon={faPaperPlane} /> Send
+							<FontAwesomeIcon icon={faPaperPlane} /> Enviar
 						</span>
 					)}
 				</button>
